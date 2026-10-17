@@ -14,11 +14,15 @@ python3 -m http.server 8000   # poi apri http://localhost:8000
 
 I percorsi sono tutti relativi: il sito funziona sia su `utente.github.io/repo/` sia su un dominio.
 
-## Collegare il configuratore a n8n (`js/config.js`)
-- `chatWebhook`: URL del nodo Webhook n8n (POST) che alimenta l’agente AI. Riceve `{ sessionId, message, brief, history }` e risponde `{ reply, quickReplies, brief }`. Se vuoto, la chat segue un percorso guidato di 5 domande, senza AI.
-- `formWebhook`: URL del Webhook che riceve la richiesta finale (JSON con contatti, riepilogo e trascrizione). Se vuoto, il modulo apre la mail con il riepilogo.
-- Nel Webhook n8n abilita CORS (*Options → Allowed Origins*) con il dominio del sito.
-- Non inserire mai chiavi API nel codice: stanno in n8n.
+## Login e configuratore (`js/config.js`)
+Il configuratore (`configuratore.html`) richiede l'accesso. GitHub Pages è un hosting statico: **il controllo vero lo fa n8n**, il browser conserva solo il token ricevuto.
+
+- `authWebhook` (POST, JSON): riceve `{ action: "login"|"register"|"reset", email, password, nome, consent }`. Risponde `{ token, name, expiresIn }`, oppure `{ message }`, oppure un errore HTTP 4xx con `{ error }`. La password va cifrata con hash (es. bcrypt) e mai salvata in chiaro.
+- `chatWebhook`: riceve `{ token, sessionId, message, brief, history }`, risponde `{ reply, quickReplies, brief }`. **Deve verificare il token e rispondere 401 se non è valido.** Senza webhook la chat segue il percorso guidato di cinque domande, senza AI.
+- `formWebhook`: richiesta finale `{ token, contact, brief, transcript }`. Anche qui verifica il token.
+- `partnerWebhook`: candidature di professionisti e rivenditori (pubbliche, senza token). Senza webhook si apre la mail.
+- `demoAuth: true` serve solo per provare il sito: accesso finto e senza protezione. Prima del lancio deve essere `false`.
+- Nel Webhook n8n abilita CORS (*Options → Allowed Origins*) con il dominio del sito. Le chiavi API stanno solo in n8n.
 
 ## Contenuti da sostituire
 Email, telefono e indirizzo provvisori compaiono in tutte le pagine (footer incluso): cerca `info@esempio.it`, `+39 000 000 0000`, `Via Esempio` e sostituiscili. Le immagini in `assets/images/` sono illustrazioni dimostrative: sostituiscile con foto `.jpg` e aggiorna `src` e `alt`. Completa `privacy.html` con un professionista.

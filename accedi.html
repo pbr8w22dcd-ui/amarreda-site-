@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accedi — Amarreda</title><meta name="description" content="Accedi o crea un account per usare il configuratore Amarreda."><meta name="robots" content="noindex">
+<meta property="og:title" content="Accedi — Amarreda"><meta property="og:description" content="Accedi o crea un account per usare il configuratore Amarreda."><meta property="og:type" content="website"><meta property="og:locale" content="it_IT">
+<meta name="theme-color" content="#F8F7F3"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"><link rel="stylesheet" href="css/style.css">
+<script src="js/config.js"></script><script src="js/auth.js"></script></head>
+<body><a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header"><a class="logo" href="index.html" aria-label="Amarreda, torna alla home"><span>ama</span><em>rr</em><span>eda</span></a><button class="burger" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+<nav class="nav" id="nav" aria-label="Principale"><a href="cucine.html">Cucine</a><a href="interni.html">Interni</a><a href="consulenza.html">Consulenza</a><a href="portfolio.html">Ispirazioni</a><a href="professionisti.html">Professionisti</a><a href="rivenditori.html">Rivenditori</a><a href="contatti.html">Contatti</a><a href="accedi.html" data-auth-link>Accedi</a><a class="btn sm" href="configuratore.html">Inizia il progetto</a></nav></header>
+<main id="main">
+<section class="ph-hero plain"><h1>Accedi per progettare.</h1><p class="lead">Il configuratore è riservato agli utenti registrati: il tuo progetto resta tuo e possiamo ricontattarti con il riepilogo giusto.</p></section>
+<section class="sec"><div class="auth-box"><p class="notice" id="auth-note" hidden></p><div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-mode="login">Accedi</button><button type="button" role="tab" aria-selected="false" data-mode="register">Crea account</button></div>
+<form class="form" id="auth-form"><label data-only="register" hidden>Nome<input name="nome" autocomplete="name" data-req="1"></label>
+<label>Email<input type="email" name="email" required autocomplete="email"></label><label>Password<input type="password" name="password" required minlength="8" autocomplete="current-password"></label>
+<label class="chk" data-only="register" hidden><input type="checkbox" name="consent" data-req="1"><span>Ho letto la <a href="privacy.html">Privacy Policy</a> e i <a href="termini.html">Termini e condizioni</a>.</span></label>
+<button class="btn" type="submit">Accedi</button><p id="auth-status" class="status" role="status"></p><a class="tl" href="#" id="forgot">Password dimenticata?</a></form></div></section>
+</main>
+<footer class="site-footer"><div><a class="logo" href="index.html" aria-label="Amarreda, torna alla home"><span>ama</span><em>rr</em><span>eda</span></a><p class="tag">Amarreda — Progettare con consapevolezza. Arredare con visione.</p><p class="about">Una piattaforma digitale dedicata alla progettazione d’interni e all’orientamento nella scelta dell’arredo, che mette in relazione esigenze personali, tecnologia, prodotti e professionisti.</p></div>
+<div><h3>Pagine</h3><a href="index.html#come-funziona">Come funziona</a><a href="cucine.html">Cucine</a><a href="index.html#brand">Brand</a><a href="professionisti.html">Per i professionisti</a><a href="rivenditori.html">Per i rivenditori</a><a href="contatti.html">Contatti</a><a href="accedi.html">Accedi</a></div>
+<div><h3>Contatti</h3><a href="mailto:info@esempio.it">info@esempio.it</a><a href="tel:+390000000000">+39 000 000 0000</a><span>Via Esempio 00, 00000 Città</span></div>
+<p class="fine">© 2026 Amarreda · <a href="privacy.html">Privacy Policy</a> · <a href="cookie.html">Cookie Policy</a> · <a href="termini.html">Termini e condizioni</a> · Le immagini sono illustrazioni dimostrative, non progetti realizzati.</p></footer>
+<script src="js/main.js"></script></body></html>
