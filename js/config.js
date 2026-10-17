@@ -10,7 +10,7 @@ window.AMARREDA = {
   authWebhook: "",
 
   /* SOLO PER PROVA: true = accesso finto, senza alcun controllo. Mettere false prima del lancio. */
-  demoAuth: false,
+  demoAuth: true,
 
   /* CHAT AI (agente n8n). Riceve { token, sessionId, message, brief, history }
      e risponde { reply, quickReplies, brief }. Deve rispondere 401 se il token non è valido. */
